@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">  <!-- All codes of this header was copied from https://getbootstrap.com/docs/5.1/components/navbar/-->
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">The Best Premium Survey</a> <!-- Logo in this line with href codes if declared-->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"> 
+        <ul class="navbar-nav ms-auto mb-2 mb-1g-0">   
+            
+        <% if (title == "Home" ) { %>
+            <li class="nav-item active">
+        <% } else  {%>
+          <li class="nav-item">
+        <% } %>
+            <a class="nav-link" href="/home"><i class="fas fa-laptop-house"></i>   Home</a>
+          </li>
+
+        <% if (title == "survey" ) { %>
+            <li class="nav-item active">
+        <% } else  {%>
+          <li class="nav-item">
+        <% } %>
+          <li class="nav-item">
+            <a class="nav-link" href="/survey"><i class="fas fa-address-book"></i>   Survey</a>
+          </li> 
+
+        <% if(typeof displayName == 'string' && displayName) { %> 
+          <li class="navbar-text"><i class="fas fa-lg fa-user"></i>  Welcome, <%= displayName %></li>
+          <li class="nav-item"><a href="/logout" class="nav-link">
+            <i class="fas fa-lg fa-sign-out-alt"></i>Logout</a></li>
+        <% } else { %>
+          <li class="nav-item"><a href="/login" class="nav-link">
+            <i class="fas fa-lg fa-sign-in-alt"></i> Login</a></li>     
+        <% } %> 
+        </ul>
+      </div>
+    </div>
+  </nav>

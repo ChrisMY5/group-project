@@ -1,0 +1,23 @@
+
+<%- include('./components/head.ejs'); %>
+<!-- head section retrieved all codes from ./components/head.ejs file-->
+
+<!-- header section: codes moved to the header.ejs file
+This section retrieved the header.ejs file -> view/components/herder.ejs
+Reference info.: 'include' code on the EJS.co website-->
+<%- include('./components/header.ejs'); %> <!-- Exact path needed and the .ejs file is in the same folder under VIEWS--> 
+<!-- header section end-->
+
+<!-- Main Section: retrieved each content from ./content/~ -->
+<%- include('./content/' + page + '.ejs'); %>
+<!-- Main section end-->
+
+<!-- Footer section -->
+<%- include('./components/footer.ejs'); %>
+<!-- footer section retrieved all codes from ./components/footer.ejs file-->
+<!-- Footer section end-->
+
+<!-- Script section-->
+<%- include('./components/script.ejs'); %>
+<!-- Script section retrieved all codes from ./components/script.ejs file-->
+<!-- Script section end-->

@@ -1,0 +1,73 @@
+
+
+<%- include('../components/head.ejs'); %>
+
+<%- include('../components/header.ejs'); %>
+
+
+<!-- create a content(table) on /survey -->
+<!-- final view page of survey List -->
+
+<main class="container">
+    <br>
+    <h1><%= title %></h1>
+    <br>
+    <% if(typeof displayName == 'string' && displayName) { %> 
+    <a href="/survey/add" class="btn btn-primary" role="button">
+    <i class = "fas fa-plus-circle"></i> Create a Survey</a>
+    <% } %>
+    <br><br>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col1">#</th>
+                        <th scope="col2">Name</th>
+                        <th scope="col3">Gender</th>
+                        <th scope="col4">Email Address</th>
+
+                        <th scope="col5">Question 1</th>
+                        <th scope="col6">Question 2</th>
+                        <th scope="col7">Question 3</th>
+                        
+                        <% if(typeof displayName == 'string' && displayName) { %> 
+                            <th scope="col8"></th>
+                            <th scope="col9"></th>
+                        <% } %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let count =0; count< SurveyList.length; count++) { %>
+                        <tr>
+                            <th scope="row"> <%= count +1 %></th>                        
+                            <td><%= SurveyList[count].name %></td>
+                            <td><%= SurveyList[count].gender %></td>
+                            <td><%= SurveyList[count].email %></td>
+                            <td><%= SurveyList[count].question1 %></td>
+                            <td><%= SurveyList[count].question2 %></td>
+                            <td><%= SurveyList[count].question3 %></td>
+
+                            <% if(typeof displayName == 'string' && displayName) { %>
+                            <td scope="col10">
+                                <a href="/survey/edit/<%= SurveyList[count]._id %>" class="btn btn-secondary btn-sm">
+                                <i class="fas fa-pencil-alt"></i>   Update</a>
+                            </td>
+                            <td scope="col11">
+                                <a href="/survey/delete/<%= SurveyList[count]._id %>" class="btn btn-danger btn-sm">
+                                <i class="fas fa-trash-alt"></i>   Delete</a>
+                            </td>
+                            <% } %>
+                        </tr>                      
+                    <%} %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+
+<%- include('../components/footer.ejs'); %>
+
+
+<%- include('../components/script.ejs'); %>
