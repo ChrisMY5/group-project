@@ -5,7 +5,7 @@ let surveyModel = mongoose.Schema(
     {
         //set the properties
         name: String,
-        gender: String,
+        process: String,
         email: String,
         question1: String,
         question2: String,
